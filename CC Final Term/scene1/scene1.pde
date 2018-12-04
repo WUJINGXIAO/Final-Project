@@ -1,17 +1,18 @@
+float tears=0;
+float full=800;
+
 Depression Black;
-//Depression Black2;
 Face Me;
 
 
 void setup(){
   size(800,800);
   background(144, 123, 123);
-  
   Black = new Depression(500,500,200,200);
-  //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,50);
   
-  
+ 
+   
 }
 
 void draw(){
@@ -22,10 +23,29 @@ void draw(){
   Me.eyes();
   Me.checks();
   // why once I uncomment my mouth the sentence would disappear?Cre
-  //Me.mouth(); 
+  Me.mouth(); 
   word();
 
-  
+   if(mousePressed) {
+     fill(77,160,255);
+     if(full<0){
+     rect(0,0,800,full);
+     full = full+1;
+    }
+    else{
+      //background(144, 123, 123);
+    }
+    
+    if(tears + 20 >= full){
+      rect(0,full, 800, full);
+      full = full - 1;
+   }
+    
+    tears = tears + 2;
+    fill(77,160,255);
+    rect(249,395, 15, 15 + tears,10);
+    rect(453,418, 15, 15 +tears,10);
+    }
  
 }
 // scene#1 title

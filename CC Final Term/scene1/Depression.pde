@@ -16,13 +16,6 @@ void display(float changeX, float changeY){
   noStroke();
   fill(63, 57, 57);
   ellipse(changeX,changeY,xLoc,yLoc);
- 
-    
   
-}
-
-
-  
-  
-  
-}
+ }
+ }
