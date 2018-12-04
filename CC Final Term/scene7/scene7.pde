@@ -1,3 +1,6 @@
+// there should be more tricks in KeyCODED parts
+
+
 Depression mover;
 Depression mover2;
 Face Me;
@@ -36,9 +39,10 @@ void draw(){
   // there should be more stuffs in the background
   if (keyPressed){
     if(key=='1'){
-      background(188, 241, 180);
+    background(188, 241, 180);
     mover.update();
     mover.display(255,238,239);
+    
     } 
     if(key=='2'){
       background(169, 211, 223);  

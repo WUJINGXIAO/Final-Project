@@ -1,3 +1,4 @@
+
 Depression Super;
 Depression Big;
 //Depression Medium;
@@ -48,7 +49,24 @@ if (mouseX<248&&mouseX>69&&mouseY<400&&mouseY>200){
   
 }
   
-
+if (mouseX<248&&mouseX>69&&mouseY<400&&mouseY>200&&mousePressed){
+  fill(255, 0, 0);
+  ellipse(100,284,25,15);
+  ellipse(200,284,25,15);
+  triangle(130,370,152,312,180,370);
+  }else if(mouseX<238&&mouseX>69&&mouseY<574&&mouseY>410&&mousePressed){
+  fill(255, 122, 20);
+  ellipse(120,480,20,20);
+  ellipse(200,480,20,20);
+  rect(120,510,60,10);
+}else if (mouseX<238&&mouseX>69&&mouseY<684&&mouseY>630&&mousePressed){
+   fill(244, 254, 89);
+   ellipse(143,650,10,10);
+   ellipse(160,650,10,10);
+   triangle(143,666,151,676,161,666);
+ 
+  
+}
   
  
 }

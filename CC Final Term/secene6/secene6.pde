@@ -48,8 +48,10 @@ void draw(){
   noStroke();
   fill(63, 57, 57);
   ellipse(location.x,location.y,200,200);
+  
  // black becomes cute ball 
   if (mousePressed==true){
+  
   background(0);
   noStroke();
   fill(255, 238, 239); 
@@ -60,11 +62,10 @@ void draw(){
   fill(91, 78, 79);
   ellipse(location.x-45,location.y-45,20,20);
   ellipse(location.x+45,location.y-45,20,20);
-  
-  
-  
-    
-  }
+  // shining pink stars in background
+  fill(247, 178, 193);
+  star(random(width),random(height),random(5,20));
+   }
 }
 
 void word(){ 
@@ -76,4 +77,25 @@ void word(){
   textSize(30);
   text(thanks2,100,200,500,500);
  }
+ 
+void star(float x, float y, float r) {
+
+  pushStyle();
+  noStroke();
+  float x1 = x;
+  float y1 = y-r;
+  float x3 =x- cos(PI/6)*r;
+  float y3 =y + sin(PI/6)*r;
+  float x2 = x + cos(PI/6)*r;
+  float y2 = y + sin(PI/6)*r;
+  float x4 =x - cos(PI/6)*r;
+  float y4 =y - sin(PI/6)*r;
+  float x5 =x + cos(PI/6) * r;
+  float y5 =y - sin(PI/6) * r;
+  float x6 = x ;
+  float y6 = y + r;
+ triangle(x1, y1, x2, y2, x3, y3);
+ triangle(x4, y4, x5, y5, x6, y6);
+  popStyle();
+}
  

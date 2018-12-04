@@ -26,16 +26,16 @@ void draw(){
   Me.eyes();
   Me.checks();
   Me.tears();
-  // why once I uncomment my mouth the sentence would disappear?
-  //Me.mouth(); 
+  
+  Me.mouth(); 
   for (int w=0;w<800;w=w+70){
     for (int h=0; h<800; h=h+70){
   drawStar(w,h,10);
     }
   }
   word();
-  cover1.display(247,370,130);
-  cover2.display(450,370,130);
+  //cover1.display(247,370,130);
+  //cover2.display(450,370,130);
   
 
   
@@ -68,11 +68,16 @@ void drawStar(float x, float y, float size) {
 
  
 void mouseDragged(){
-  background(0);
+  background(120);
+  for(int i=0;i<20;i+=1){
+    fill(0);
+    
+    ellipse(mouseX +random(800)-200,mouseY+random(800)-200,8,8);
+      }
    Me.eyes();
    Me.checks();
   Me.tears();
+  Me.mouth();
   cover1.display(247,370,255);
   cover2.display(450,370,255);
-
 }

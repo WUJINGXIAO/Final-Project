@@ -19,7 +19,7 @@ void draw(){
   word();
   Me.eyes();
   Me.checks();
-  //Me.mouth();
+  Me.mouth();
   Black.display(mouseX,mouseY);
   
   float x = random(width);

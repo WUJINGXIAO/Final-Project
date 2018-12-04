@@ -4,7 +4,6 @@ PImage img;
 
 
 Depression Black;
-//Depression Black2;
 Face Me;
 
 
@@ -30,8 +29,7 @@ void draw(){
  // Black2.display(mouseX,mouseY);
   Me.eyes();
   Me.checks();
-  // why once I uncomment my mouth the sentence would disappear?Cre
-  //Me.mouth(); 
+  Me.mouth(10); 
   word();
   
   // colorful particles 
@@ -54,6 +52,7 @@ void draw(){
  void mouseDragged(){
   if (n < 200 - 1) n++;
   p[n] = new Colorful(mouseX, mouseY, random(360));
+  Me.mouth(60);
 }
  
 

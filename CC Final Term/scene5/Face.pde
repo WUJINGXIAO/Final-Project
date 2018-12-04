@@ -24,11 +24,10 @@ void checks(){
   ellipse(520,450,100,40);
   }
   
-void mouth(){
+void mouth(float open){
   noStroke();
   fill(41, 4, 0);
-  rectMode(CENTER);
-  rect(350,480,200,10);
+  rect(250,480,200,open);
   
 }
  }
