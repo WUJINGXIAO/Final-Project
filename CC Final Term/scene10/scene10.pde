@@ -1,3 +1,5 @@
+PImage s;
+
 Depression mover;
 Depression mover2;
 Face Me;
@@ -6,6 +8,7 @@ Face Me;
 void setup(){
   size(800,800);
   background(144, 123, 123);
+   s = loadImage("shining.jpg");
   
   //Black = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
@@ -20,6 +23,7 @@ void setup(){
 void draw(){
   
   background(144, 123, 123);
+   image(s,0,0);
   println(mouseX,mouseY);
   
   //Black.display(360,620);

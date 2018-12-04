@@ -13,7 +13,7 @@ Face(float a_, float b_){
 
 void eyes(){
   noStroke();
-  fill(9, 8, 50);
+  fill(230);
   ellipse(200 + mouseX * 0.1,300 + mouseY * 0.1,a,b);
   ellipse(500 + mouseX * 0.1,300 + mouseY * 0.1,100,100);
  }

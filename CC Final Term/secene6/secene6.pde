@@ -1,3 +1,5 @@
+PImage photo7;
+
 PVector location;  
 PVector velocity;  
 PVector gravity;  
@@ -20,7 +22,7 @@ void setup(){
   velocity = new PVector(1.5,2.1);
   gravity = new PVector(0,0.2);
 
-  
+  photo7 = loadImage("pink.jpg");
   
   
 }
@@ -28,6 +30,8 @@ void setup(){
 void draw(){
   
   background(144, 123, 123);
+  
+  image(photo7,0,0);
   println(mouseX,mouseY);
   
   //Black.display(360,620);
@@ -71,8 +75,8 @@ void draw(){
 void word(){ 
   String thanks = "Thankfully I sought professional help.";
   String thanks2 = "This was my turning point in my life...";
-  fill(227, 220, 220);
-  textSize(32);
+  fill(115, 13, 82);
+  textSize(36);
   text(thanks,100,100,500,500);
   textSize(30);
   text(thanks2,100,200,500,500);

@@ -1,3 +1,4 @@
+PImage r;
 PVector location;  
 PVector velocity;  
 PVector gravity;  
@@ -12,7 +13,7 @@ Face Me;
 void setup(){
   size(800,800);
   background(144, 123, 123);
-  
+  r = loadImage("rainbow.jpg");
   //Black = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,50);
@@ -29,6 +30,7 @@ void setup(){
 void draw(){
   
   background(144, 123, 123);
+  image(r,0,0);
   println(mouseX,mouseY);
   noStroke();
   fill(255, 238, 239); 

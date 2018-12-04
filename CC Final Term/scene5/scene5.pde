@@ -1,6 +1,6 @@
 Colorful[] p;
 int n = 0;
-PImage img;
+PImage photo6;
 
 
 Depression Black;
@@ -19,11 +19,13 @@ void setup(){
   for (int i=1; i<=n; i++)
     p[i] = new Colorful(width/2, height/2, random(TWO_PI));
   
+  photo6 = loadImage("black.jpg");
   
 }
 
 void draw(){
   background(144, 123, 123);
+  image(photo6,0,0);
   println(mouseX,mouseY);
   Black.display(mouseX+random(0,15),mouseY+random(0,15));
  // Black2.display(mouseX,mouseY);
@@ -51,18 +53,18 @@ void draw(){
 
  void mouseDragged(){
   if (n < 200 - 1) n++;
-  p[n] = new Colorful(mouseX, mouseY, random(360));
+  p[n] = new Colorful(350, 510, random(360));
   Me.mouth(60);
 }
  
 
 void word(){ 
   String negative = " Black Ball would make me think and say negative things... ";
-  String positive = " I want to say something colorful...But Black Ball makes them black"; 
+  //String positive = " I want to say something colorful...But Black Ball makes them black"; 
   fill(227, 220, 220);
   textSize(32);
   text(negative,100,100,500,500);
-  fill(223, 131, 168);
-  textSize(22);
-  text(positive,100,200,500,500);
+  //fill(223, 131, 168);
+  //textSize(22);
+  //text(positive,100,200,500,500);
  }

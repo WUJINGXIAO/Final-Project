@@ -1,5 +1,7 @@
-// there should be more tricks in KeyCODED parts
-
+PImage p1;
+PImage p2;
+PImage p3;
+PImage p0;
 
 Depression mover;
 Depression mover2;
@@ -16,6 +18,10 @@ void setup(){
   mover = new Depression();
   mover2 = new Depression();
   
+  p0 = loadImage("pinky.jpg");
+  p1 = loadImage("green.jpg");
+  p2 = loadImage("blue.jpg");
+  p3 = loadImage("pink.jpg");
   
   
 }
@@ -24,7 +30,7 @@ void draw(){
   
   background(144, 123, 123);
   println(mouseX,mouseY);
-  
+  image(p0,0,0);
   //Black.display(360,620);
  // Black2.display(mouseX,mouseY);
   Me.eyes();
@@ -40,19 +46,24 @@ void draw(){
   if (keyPressed){
     if(key=='1'){
     background(188, 241, 180);
+    image(p1,0,0);
     mover.update();
     mover.display(255,238,239);
     
     } 
     if(key=='2'){
       background(169, 211, 223);  
+      image(p2,0,0);
       mover2.update();
       mover2.display(132, 131, 120);
+      
     }    
     if(key=='3'){
-      background(255, 214, 217);  
+      background(255, 214, 217); 
+      image(p3,0,0); 
       mover.update();
       mover.display(132, 231, 220);
+      
       
       
     }    
@@ -61,7 +72,7 @@ void draw(){
 }
 void word(){ 
   String tricks= "I learned not to be afraid of it and taught him a few new tricks of my own"; 
-  fill(253, 189, 194);
+  fill(115, 13, 82);
   textSize(32);
   text(tricks,100,100,500,500);
 }

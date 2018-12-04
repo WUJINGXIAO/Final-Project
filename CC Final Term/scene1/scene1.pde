@@ -1,3 +1,6 @@
+PImage photo;
+
+
 float tears=0;
 float full=800;
 
@@ -7,6 +10,7 @@ Face Me;
 
 void setup(){
   size(800,800);
+  photo = loadImage("depression.jpg");
   background(144, 123, 123);
   Black = new Depression(500,500,200,200);
   Me = new Face(50,50);
@@ -16,7 +20,8 @@ void setup(){
 }
 
 void draw(){
-  background(144, 123, 123);
+  //background(144, 123, 123);
+  image(photo,0,0);
   println(mouseX,mouseY);
   Black.display(mouseX+random(0,15),mouseY+random(0,15));
  // Black2.display(mouseX,mouseY);

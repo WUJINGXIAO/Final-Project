@@ -27,8 +27,8 @@ void checks(){
 void mouth(){
   noStroke();
   fill(41, 4, 0);
-  rectMode(CENTER);
-  rect(350+m,480,200,10);
+  
+  rect(250+m,480,200,10);
   
 }
 

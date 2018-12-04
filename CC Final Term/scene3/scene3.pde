@@ -1,3 +1,7 @@
+PImage photo3;
+PImage photo4;
+
+
 Depression Black;
 Depression cover1;
 Depression cover2;
@@ -14,12 +18,16 @@ void setup(){
   cover2 = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,50);
+  photo3 = loadImage("colorfulcrowd.jpg");
+   photo4 = loadImage("blackcrowd.jpg");
+  
   
   
 }
 
 void draw(){
   background(144, 123, 123);
+  image(photo3,0,0);
   println(mouseX,mouseY);
   //Black.display(mouseX,mouseY,200);
  // Black2.display(mouseX,mouseY);
@@ -30,7 +38,7 @@ void draw(){
   Me.mouth(); 
   for (int w=0;w<800;w=w+70){
     for (int h=0; h<800; h=h+70){
-  drawStar(w,h,10);
+  drawStar(w,h,3);
     }
   }
   word();
@@ -46,9 +54,9 @@ void word(){
   String four = " When the rest of world seem to be enjoying life ";
   String five = " I could only see it through BLACK BALL...";
   fill(255);
-  textSize(35);
+  textSize(40);
   text(four,100,100,500,500);
-  textSize(35);
+  textSize(40);
    text(five,100,200,500,500);
  }
  
@@ -69,6 +77,7 @@ void drawStar(float x, float y, float size) {
  
 void mouseDragged(){
   background(120);
+  image(photo4,0,0);
   for(int i=0;i<20;i+=1){
     fill(0);
     
