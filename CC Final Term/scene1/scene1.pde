@@ -1,8 +1,5 @@
 int count = 0; // important ! Used to switching different scenes..
 
-
-
-
 //scene1
 PImage photo;
 float tears=0;
@@ -31,11 +28,26 @@ PVector location;
 PVector velocity;  
 PVector gravity;  
 // scene 7
-
+PImage p1;
+PImage p2;
+PImage p3;
+PImage p0;
+//float max;
+Depression2 mover;
+Depression2 mover2;
+// scene 8
+PImage define;
+PImage mood;
+PImage mood2;
+Depression Super;
+Depression Big;
+Depression Small;
+// scene 9
 
 
 void setup(){
   size(800,800);
+  println(mouseX,mouseY);
   // 1
   photo = loadImage("depression.jpg");
   // 2
@@ -58,13 +70,28 @@ void setup(){
   velocity = new PVector(1.5,2.1);
   gravity = new PVector(0,0.2);
   photo7 = loadImage("pink.jpg");
+  // 7
+  mover = new Depression2();
+  mover2 = new Depression2();
+  p0 = loadImage("pinky.jpg");
+  p1 = loadImage("same.jpg");
+  p2 = loadImage("blue.jpg");
+  p3 = loadImage("red.jpg");
+  // 8
+  define = loadImage("journal.jpg");
+  mood = loadImage("smile.png");
+  mood2 = loadImage("bad.png");
+  Super = new Depression(500,500,180+random(0,15),180+random(0,15));
+  Big = new Depression(500,500,150+random(0,15),150+random(0,15));
+  Small = new Depression(500,500,50+random(0,15),50+random(0,15));
+
 
   Black = new Depression(500,500,200,200);
   Me = new Face(50,50);
 }
 void draw(){
   image(photo,0,0);
-  println(mouseX,mouseY);
+  //println(mouseX,mouseY);
   Black.display(mouseX+random(0,15),mouseY+random(0,15));
   Me.eyes();
   Me.checks();
@@ -146,12 +173,31 @@ if(count ==2){
 if(count ==3){
  
  image(photo5,0,0);
- Me.eyes();
- Me.checks();
- Me.mouth(); 
- Black.display(78+n,385);
+ //Me.eyes();
+ //Me.checks();
+ //Me.mouth(); 
+ // ball
+ noStroke();
+  fill(0);
+  ellipse(78+n,385,200,200);  
+  // eyes
+  noStroke();
+  fill(249, 245, 245);
+  ellipse(250+m,370,40,40);
+  ellipse(450+m,370,100,100);
+  //
+  noStroke();
+  fill(243, 103, 88);
+  ellipse(190+m,450,100,40);
+  ellipse(520+m,450,100,40);
+  //
+  noStroke();
+  fill(212);
+  rect(250+m,480,200,10);
+ //Black.display(78+n,385);
  n=n+1;
  m=m+1;
+
  if (mousePressed){
    background(0);
    image(brave,0,0);
@@ -160,7 +206,7 @@ if(count ==3){
 }
 
 if(count ==4){
- 
+
   image(photo6,0,0);
   Black.display(mouseX+random(0,15),mouseY+random(0,15));
   Me.eyes();
@@ -176,14 +222,15 @@ if(count ==4){
     p[i].show();
   }
  Me.mouth(); 
+  word5();
  }  
  // negative things
- if (mousePressed){
-    word5();
+ //if (mousePressed==true){
+   
   if (n1 < 200 - 1) n1++;
   p[n1] = new Colorful(350, 510, random(360));
   Me.mouth();
-}
+
 if(count ==5){
   //background(0);
   image(photo7,0,10);
@@ -232,10 +279,81 @@ if(count ==5){
   
 }
 if(count ==6){
+  image(p0,-600,-50);
+  Me.eyes();
+  Me.checks();
+  Me.mouth(); 
   word7();
+  mover.update();
+  mover.display(254, 213, 225);
+  // tricks
+  
+  fill(201, 151, 171);
+  ellipse(100,600,40,40);
+  ellipse(300,600,40,40);
+  ellipse(500,600,40,40);
+  
+  if (mouseX>80&&mouseX<120&&mouseY<620&&mouseY>580&&mousePressed){
+     
+  //background(188, 241, 180);
+    image(p1,-40,-40);
+    mover.update();
+    mover.display(255,238,239);
+    
+    } 
+    if(mouseX<320&&mouseX>280&&mouseY<620&&mouseY>580&&mousePressed){
+      //background(169, 211, 223);  
+      image(p2,-260,-70);
+      mover2.update();
+      mover2.display(132, 131, 120);     
+    }    
+    if(mouseX<520&&mouseX>480&&mouseY<620&&mouseY>580&&mousePressed){
+     // background(255, 214, 217); 
+      image(p3,-150,-140); 
+      mover.update();
+      mover.display(132, 231, 220);
+    
+    }  }
+    
+  if(count ==7){
+    image(define,0,0);
+   Super.display(158,301+random(0,15));
+  Big.display(154,491+random(0,10));
+  Small.display(153,653+random(0,5));
+  word8();
+  if (mouseX<248&&mouseX>69&&mouseY<400&&mouseY>200){
+ fill(255,0,0);
+ textSize(42);
+ text("poor", 450, 300);  
+
+}else if(mouseX<238&&mouseX>69&&mouseY<574&&mouseY>410){
+ fill(255, 122, 20);
+ textSize(42);
+ text("Bad", 450, 490);  
+}else if (mouseX<238&&mouseX>69&&mouseY<684&&mouseY>630){
+   fill(244, 254, 89);
+ textSize(42);
+ text("Good!", 450, 660); 
   
 }
+  
+if (mouseX<248&&mouseX>69&&mouseY<400&&mouseY>200&&mousePressed){
+  image(define,0,0);
+  image(mood2,160,280);
+  }else if(mouseX<238&&mouseX>69&&mouseY<574&&mouseY>410&&mousePressed){
+
+  image(define,0,0);
+  image(mood2,170,280);
+}else if (mouseX<238&&mouseX>69&&mouseY<684&&mouseY>630&&mousePressed){
+   image(define,0,0);
+   image(mood,170,110);
+ 
+  
 }
+    }
+}
+
+
 
   
 // scene 3  
@@ -336,7 +454,16 @@ void word3(){
   fill(201, 151, 171);
   textSize(32);
   text(tricks,100,100,500,500);
-}
+ }
+ 
+void word8(){ 
+  String eleven = "I also learned to keep a mood journal, getting things on paper!";
+  fill(20);
+  textSize(40);
+  text(eleven,50,50,500,500);
+ }
+ 
+ 
  
 
 void keyPressed(){

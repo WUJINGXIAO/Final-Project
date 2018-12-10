@@ -24,10 +24,10 @@ class Colorful
   }
   void show()
   {
-    color col = int(map(dist(mouseX, mouseY, x, y), 0, (width + height)/2, 0, 255));
-    colorMode(HSB);
-    stroke(col, 255, br);
-    fill(col, 255, br, 100);
+    //color col = int(map(dist(mouseX, mouseY, x, y), 0, (width + height)/2, 0, 255));
+    //colorMode(HSB);
+    stroke(255, 255, br);
+    fill(125,100);
     if (box)
       rect(x, y, r, r);
     else
