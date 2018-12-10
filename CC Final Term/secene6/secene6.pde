@@ -1,5 +1,4 @@
 PImage photo7;
-
 PVector location;  
 PVector velocity;  
 PVector gravity;  
@@ -21,19 +20,15 @@ void setup(){
   location = new PVector(100,100);
   velocity = new PVector(1.5,2.1);
   gravity = new PVector(0,0.2);
-
   photo7 = loadImage("pink.jpg");
   
   
 }
 
 void draw(){
-  
   background(144, 123, 123);
-  
   image(photo7,0,0);
   println(mouseX,mouseY);
-  
   //Black.display(360,620);
  // Black2.display(mouseX,mouseY);
   Me.eyes();
@@ -50,7 +45,7 @@ void draw(){
    location.y = height;
   }
   noStroke();
-  fill(63, 57, 57);
+  fill(0);
   ellipse(location.x,location.y,200,200);
   
  // black becomes cute ball 
@@ -58,16 +53,19 @@ void draw(){
   
   background(0);
   noStroke();
-  fill(255, 238, 239); 
+  fill(241, 190, 210); 
   ellipse(location.x,location.y,200,200);
   fill(250, 144, 152);
   ellipse(location.x-65,location.y-10,50,20);
   ellipse(location.x+65,location.y-10,50,20);
+  
   fill(91, 78, 79);
   ellipse(location.x-45,location.y-45,20,20);
   ellipse(location.x+45,location.y-45,20,20);
   // shining pink stars in background
   fill(247, 178, 193);
+  star(random(width),random(height),random(5,20));
+  star(random(width),random(height),random(5,20));
   star(random(width),random(height),random(5,20));
    }
 }
@@ -75,11 +73,11 @@ void draw(){
 void word(){ 
   String thanks = "Thankfully I sought professional help.";
   String thanks2 = "This was my turning point in my life...";
-  fill(115, 13, 82);
+  fill(0);
   textSize(36);
-  text(thanks,100,100,500,500);
-  textSize(30);
-  text(thanks2,100,200,500,500);
+  text(thanks,100,50,500,500);
+  textSize(35);
+  text(thanks2,100,170,500,500);
  }
  
 void star(float x, float y, float r) {

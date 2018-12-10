@@ -31,7 +31,7 @@ void draw(){
  // Black2.display(mouseX,mouseY);
   Me.eyes();
   Me.checks();
-  Me.mouth(10); 
+  //Me.mouth(10); 
   word();
   
   // colorful particles 
@@ -47,14 +47,15 @@ void draw(){
     p[i].show();
   }
 
-  
+  Me.mouth(10); 
  
 }
 
  void mouseDragged(){
+   
   if (n < 200 - 1) n++;
   p[n] = new Colorful(350, 510, random(360));
-  Me.mouth(60);
+  Me.mouth(50);
 }
  
 

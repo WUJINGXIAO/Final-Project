@@ -14,11 +14,8 @@ Depression(float x_, float y_, float xLoc_,float yLoc_){
 
 void display(float changeX, float changeY, color o){
   noStroke();
-  fill(63, 57, 57,o);
+  fill(0);
   ellipse(changeX,changeY,xLoc,yLoc);
 }
-
-
-
 
 }

@@ -1,29 +1,38 @@
 PImage s;
-
 Depression mover;
 Depression mover2;
 Face Me;
+
+/*PVector position;
+PVector velocity;
+float r = 6;
+float speed = 3.5;
+PVector base1;
+PVector base2
+*/;
 
 
 void setup(){
   size(800,800);
   background(144, 123, 123);
-   s = loadImage("shining.jpg");
-  
+   s = loadImage("shining .jpg");
   //Black = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,50);
   mover = new Depression();
   mover2 = new Depression();
   
-  
-  
+
 }
+  
+  
+  
+
 
 void draw(){
   
   background(144, 123, 123);
-   image(s,0,0);
+  image(s,0,0);
   println(mouseX,mouseY);
   
   //Black.display(360,620);
@@ -37,6 +46,9 @@ void draw(){
   mover.display(254, 213, 225);
   
   star(mouseX,mouseY);
+  
+ 
+ 
   
 }
  void star(float x, float y){

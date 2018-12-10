@@ -1,16 +1,10 @@
 class Face{
   float a;
   float b;
-  
- 
-  
-Face(float a_, float b_){
+  Face(float a_, float b_){
   a=a_;
   b=b_;
-  
-  
-}
-
+  }
 void eyes(){
   noStroke();
   fill(249, 245, 245);
@@ -23,11 +17,9 @@ void checks(){
   ellipse(190,450,100,40);
   ellipse(520,450,100,40);
   }
-  
-void mouth(){
+  void mouth(){
   noStroke();
-  fill(41, 4, 0);
+  fill(212);
   rect(250,480,200,10);
-  
-}
+  }
  }

@@ -25,7 +25,6 @@ class Colorful
   void show()
   {
     color col = int(map(dist(mouseX, mouseY, x, y), 0, (width + height)/2, 0, 255));
-    //float dis = dist(width/2, height/2, x, y);
     colorMode(HSB);
     stroke(col, 255, br);
     fill(col, 255, br, 100);

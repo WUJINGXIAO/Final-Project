@@ -13,7 +13,7 @@ Face Me;
 void setup(){
   size(800,800);
   background(144, 123, 123);
-  r = loadImage("rainbow.jpg");
+  r = loadImage("rainbow1.jpg");
   //Black = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,50);
@@ -84,10 +84,10 @@ void draw(){
 //}
 
 void word(){ 
-  String embrace = " I learnt it is better to embrace my 'black ball'!";
+  String embrace = " I learned that it is better to embrace my 'black ball'!";
 
-  fill(12, 111, 193);
-  textSize(32);
+  fill(255);
+  textSize(40);
   text(embrace,100,100,500,500);
   
  }

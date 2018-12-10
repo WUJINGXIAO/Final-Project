@@ -19,9 +19,9 @@ void setup(){
   mover2 = new Depression();
   
   p0 = loadImage("pinky.jpg");
-  p1 = loadImage("green.jpg");
+  p1 = loadImage("same.jpg");
   p2 = loadImage("blue.jpg");
-  p3 = loadImage("pink.jpg");
+  p3 = loadImage("red.jpg");
   
   
 }
@@ -30,7 +30,7 @@ void draw(){
   
   background(144, 123, 123);
   println(mouseX,mouseY);
-  image(p0,0,0);
+  image(p0,-600,-50);
   //Black.display(360,620);
  // Black2.display(mouseX,mouseY);
   Me.eyes();
@@ -46,21 +46,21 @@ void draw(){
   if (keyPressed){
     if(key=='1'){
     background(188, 241, 180);
-    image(p1,0,0);
+    image(p1,-40,-40);
     mover.update();
     mover.display(255,238,239);
     
     } 
     if(key=='2'){
       background(169, 211, 223);  
-      image(p2,0,0);
+      image(p2,-260,-70);
       mover2.update();
       mover2.display(132, 131, 120);
       
     }    
     if(key=='3'){
       background(255, 214, 217); 
-      image(p3,0,0); 
+      image(p3,-150,-140); 
       mover.update();
       mover.display(132, 231, 220);
       
@@ -72,7 +72,7 @@ void draw(){
 }
 void word(){ 
   String tricks= "I learned not to be afraid of it and taught him a few new tricks of my own"; 
-  fill(115, 13, 82);
+  fill(201, 151, 171);
   textSize(32);
   text(tricks,100,100,500,500);
 }

@@ -1,7 +1,5 @@
-// this scene should use vector to let black free dropping 
-// use time to show crowd diappear constantly 
-
 PImage photo5;
+PImage brave;
 float n;
 float m;
 Depression Black;
@@ -9,16 +7,15 @@ Depression Black;
 Face Me;
 Crowd people;
 
-
 void setup(){
   size(800,800);
   background(144, 123, 123);
-  
-  Black = new Depression(500,500,200,200);
+   Black = new Depression(500,500,200,200);
   //Black2 = new Depression(mouseX,mouseY,200,200);
   Me = new Face(50,20+random(0,20));
   people = new Crowd(70,70);
-   photo5 = loadImage("people.jpg");
+  photo5 = loadImage("people.jpg");
+  brave = loadImage("confidence.jpg");
   
   
   
@@ -32,22 +29,25 @@ void draw(){
  // Black2.display(mouseX,mouseY);
   Me.eyes();
   Me.checks();
-  // why once I uncomment my mouth the sentence would disappear?Cre
   Me.mouth(); 
- word();
+  //word();
  Black.display(78+n,385);
  n=n+1;
  m=m+1;
- 
-
-  
- 
+ if (mousePressed){
+   background(0);
+   image(brave,0,0);
+   word();
+   
+   
+ }
 }
-// scene#1 title
+
 void word(){ 
   String six = " At social situations, it would sniff out what confidence I had and chase it away... ";
+  String greeting = " Confidence ??? ";
   fill(0);
   textSize(42);
-  text(six,100,100,500,500);
+  text(six,100,400,500,500);
+  text(greeting,100+n,700,500,500);
  }
- 

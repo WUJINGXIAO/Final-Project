@@ -28,7 +28,6 @@ void draw(){
   Me.checks();
   Me.mouth();
   Black.display(mouseX,mouseY);
-  
   float x = random(width);
   float  y = random(height);
   float s = random(20, 40);

@@ -26,7 +26,7 @@ void checks(){
   
 void mouth(){
   noStroke();
-  fill(41, 4, 0);
+  fill(212);
   
   rect(250+m,480,200,10);
   

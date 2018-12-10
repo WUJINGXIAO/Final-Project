@@ -26,7 +26,7 @@ void checks(){
   
 void mouth(){
   noStroke();
-  fill(41, 4, 0);
+  fill(212);
  arc(350,400,200,200,PI/5,PI-PI/5,OPEN);
   
 }
