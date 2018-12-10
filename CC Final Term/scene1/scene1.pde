@@ -1,12 +1,64 @@
+int count = 0; // important ! Used to switching different scenes..
+
+
+
+
+//scene1
 PImage photo;
 float tears=0;
 float full=800;
 Depression Black;
 Face Me;
+//scene2
+PImage photo2;
+// scene3
+PImage photo3;
+PImage photo4;
+Depression cover1;
+Depression cover2;
+//scene 4
+PImage photo5;
+PImage brave;
+float n;
+float m;
+//scene 5
+Colorful[] p;
+int n1 = 0;
+PImage photo6;
+//scene 6
+PImage photo7;
+PVector location;  
+PVector velocity;  
+PVector gravity;  
+// scene 7
+
+
+
 void setup(){
   size(800,800);
+  // 1
   photo = loadImage("depression.jpg");
-  background(144, 123, 123);
+  // 2
+  photo2= loadImage("depression2.jpg");
+  // 3
+  photo3 = loadImage("colorfulcrowd.jpg");
+  photo4 = loadImage("blackcrowd.jpg");
+  cover1 = new Depression(500,500,100,100);
+  cover2 = new Depression(500,500,200,200);
+  // 4
+  photo5 = loadImage("people.jpg");
+  brave = loadImage("confidence.jpg");
+  // 5
+  p = new Colorful[200]; 
+  for (int i=1; i<=n1; i++)
+    p[i] = new Colorful(width/2, height/2, random(TWO_PI));
+  photo6 = loadImage("black.jpg");
+  // 6
+  location = new PVector(100,100);
+  velocity = new PVector(1.5,2.1);
+  gravity = new PVector(0,0.2);
+  photo7 = loadImage("pink.jpg");
+
   Black = new Depression(500,500,200,200);
   Me = new Face(50,50);
 }
@@ -17,7 +69,7 @@ void draw(){
   Me.eyes();
   Me.checks();
   Me.mouth(); 
-  word();
+  word1();
  if(mousePressed) {
      fill(77,160,255);
      if(full<0){
@@ -33,11 +85,264 @@ void draw(){
     rect(249,395, 15, 15 + tears,10);
     rect(453,418, 15, 15 +tears,10);
     } 
+// important !! Different scenes!!!!!    
+ if(count ==1){
+  // photo2= loadImage("depression2.jpg");
+  image(photo2,0,0);
+  word2();
+  Me.eyes();
+  Me.checks();
+  Me.mouth();
+  Black.display(mouseX,mouseY);
+  float x = random(width);
+  float  y = random(height);
+  float s = random(20, 40);
+  float r = random(0,10);
+  if (r < 0.25) {
+    fill(48, 0, 10);
+  } else if (r < 0.50) {
+    fill(72, 87, 0,128);
+  } else if (r < .75) {
+    fill(13, 45, 0);
+  } else {
+    fill(1, 20, 34);
   }
-void word(){ 
+  ellipse(x, y, s, s);
+
+}
+if(count ==2){
+  word3();
+  image(photo3,0,0);
+  println(mouseX,mouseY);
+  Me.eyes();
+  Me.checks();
+  Me.tears();
+  Me.mouth(); 
+  for (int w=0;w<800;w=w+70){
+    for (int h=0; h<800; h=h+70){
+  drawStar(w+random(255),h+random(255),4);
+    }
+  }
+  
+  if (mousePressed){
+  image(photo4,0,0);
+   word3();
+  for(int i=0;i<20;i+=1){
+    fill(0);
+    ellipse(mouseX +random(800)-200,mouseY+random(800)-200,8,8);
+      }
+  Me.eyes();
+  Me.checks();
+  Me.tears();
+  Me.mouth();
+  //fill(0);
+  //ellipse(247,370,200,200);
+  //ellipse(450,370,200,200);
+  cover1.display(247,370);
+  cover2.display(450,370);
+}
+  
+}
+if(count ==3){
+ 
+ image(photo5,0,0);
+ Me.eyes();
+ Me.checks();
+ Me.mouth(); 
+ Black.display(78+n,385);
+ n=n+1;
+ m=m+1;
+ if (mousePressed){
+   background(0);
+   image(brave,0,0);
+   word4();
+ }
+}
+
+if(count ==4){
+ 
+  image(photo6,0,0);
+  Black.display(mouseX+random(0,15),mouseY+random(0,15));
+  Me.eyes();
+  Me.checks();
+  if (n1 == 200 - 1) 
+  {
+    n1= 0; 
+    p = new Colorful[200];
+  }
+  for (int i=1; i<=n1; i++)
+  {
+    p[i].update();
+    p[i].show();
+  }
+ Me.mouth(); 
+ }  
+ // negative things
+ if (mousePressed){
+    word5();
+  if (n1 < 200 - 1) n1++;
+  p[n1] = new Colorful(350, 510, random(360));
+  Me.mouth();
+}
+if(count ==5){
+  //background(0);
+  image(photo7,0,10);
+  //Me.eyes(); this's not a good solution though...
+  noStroke();
+  fill(249, 245, 245);
+  ellipse(200 + mouseX * 0.1,300 + mouseY * 0.1,40,40);
+  ellipse(500 + mouseX * 0.1,300 + mouseY * 0.1,100,100);
+  Me.checks();
+  //Me.mouth(); 
+ noStroke();
+ fill(248, 237, 242);
+ arc(350,400,200,200,PI/5,PI-PI/5,OPEN);
+  word6();
+  // black ball!
+  location.add(velocity);
+  velocity.add(gravity);
+  if ((location.x > width) || (location.x < 0)) {
+    velocity.x = velocity.x * -1;
+  }if (location.y > height) {
+   velocity.y = velocity.y * -0.95; 
+   location.y = height;
+  }
+  noStroke();
+  fill(0);
+  ellipse(location.x,location.y,200,200);
+  // pink ball!!!!!
+   if (mousePressed==true){
+  background(0);
+  noStroke();
+  fill(241, 190, 210); 
+  ellipse(location.x,location.y,200,200);
+  fill(250, 144, 152);
+  ellipse(location.x-65,location.y-10,50,20);
+  ellipse(location.x+65,location.y-10,50,20);  
+  fill(91, 78, 79);
+  ellipse(location.x-45,location.y-45,20,20);
+  ellipse(location.x+45,location.y-45,20,20);
+  // shining pink stars in background
+  fill(247, 178, 193);
+  star(random(width),random(height),random(5,20));
+  star(random(width),random(height),random(5,20));
+  star(random(width),random(height),random(5,20));
+   }
+  
+  
+}
+if(count ==6){
+  word7();
+  
+}
+}
+
+  
+// scene 3  
+void drawStar(float x, float y, float size) {
+  fill(200+random(0,30),100+random(0,90),0);
+  stroke(255, 255, 0);
+  float orientation=random(TWO_PI);
+  beginShape();
+  for (int a=0; a<5; a++) {
+    vertex(x+cos(orientation)*size, y+sin(orientation)*size);
+    orientation+=TWO_PI/5*2;
+  }
+  endShape(CLOSE);
+}  
+
+// scene 6
+void star(float x, float y, float r) {
+  pushStyle();
+  noStroke();
+  float x1 = x;
+  float y1 = y-r;
+  float x3 =x- cos(PI/6)*r;
+  float y3 =y + sin(PI/6)*r;
+  float x2 = x + cos(PI/6)*r;
+  float y2 = y + sin(PI/6)*r;
+  float x4 =x - cos(PI/6)*r;
+  float y4 =y - sin(PI/6)*r;
+  float x5 =x + cos(PI/6) * r;
+  float y5 =y - sin(PI/6) * r;
+  float x6 = x ;
+  float y6 = y + r;
+ triangle(x1, y1, x2, y2, x3, y3);
+ triangle(x4, y4, x5, y5, x6, y6);
+  popStyle();
+}
+  
+void word1(){ 
   String one = " I Had A Black Ball Names Depression... ";
+ // String two = " I am a person with depression.. ";
+  //String three = " I am afraid of talking about my struggles...";
+  // scene 1
   fill(227, 220, 220);
   textSize(42);
   text(one,100,100,500,500);
  }
+ 
+ void word2(){ 
+  String two = " I am a person with depression.. ";
+  String three = " I am afraid of talking about my struggles...";
+  fill(227, 220, 220);
+  textSize(30);
+  text(two,100,100,500,500);
+  textSize(30);
+  text(three,100,200,500,500);  
+}
+
+void word3(){ 
+  String four = " When the rest of world seem to be enjoying life ";
+  String five = " I could only see it through BLACK BALL...";
+  fill(255);
+  textSize(40);
+  text(four,100,50,500,500);
+  textSize(40);
+   text(five,100,150,500,500);
+ }
+ 
+ void word4(){
+    String six = " At social situations, it would sniff out what confidence I had and chase it away... ";
+  String greeting = " Confidence ??? ";
+  fill(0);
+  textSize(42);
+  text(six,100,400,500,500);
+  text(greeting,100+n,700,500,500);
+ }
+ 
+ void word5(){ 
+  String negative = " Black Ball would make me think and say negative things... ";
+  //String positive = " I want to say something colorful...But Black Ball makes them black"; 
+  fill(227, 220, 220);
+  textSize(32);
+  text(negative,100,100,500,500);
+  //fill(223, 131, 168);
+  //textSize(22);
+  //text(positive,100,200,500,500);
+ }
+ 
+ void word6(){
+  String thanks = "Thankfully I sought professional help.";
+  String thanks2 = "This was my turning point in my life...";
+  fill(0);
+  textSize(36);
+  text(thanks,100,50,500,500);
+  textSize(35);
+  text(thanks2,100,170,500,500);   
+ }
+ void word7(){ 
+  String tricks= "I learned not to be afraid of it and taught him a few new tricks of my own"; 
+  fill(201, 151, 171);
+  textSize(32);
+  text(tricks,100,100,500,500);
+}
+ 
+
+void keyPressed(){
+if(keyPressed == true){
+count++;
+}
+}
+
  
