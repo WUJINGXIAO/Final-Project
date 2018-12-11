@@ -1,5 +1,6 @@
+//import processing.sound.*;
+//SoundFile file;
 int count = 0; // important ! Used to switching different scenes..
-
 //scene1
 PImage photo;
 float tears=0;
@@ -52,8 +53,10 @@ float embrace;
 PImage s;
 
 void setup(){
+  //file = new SoundFile(this,"music.mp3");
+  //file.play();
   size(800,800);
-  println(mouseX,mouseY);
+  println(mouseX,mouseY); 
   // 1
   photo = loadImage("depression.jpg");
   // 2
@@ -97,9 +100,8 @@ void setup(){
   gravity2 = new PVector(0,0.2);
   // 10
    s = loadImage("shining .jpg");
-
-
-  Black = new Depression(500,500,200,200);
+  // general 
+ Black = new Depression(500,500,200,200);
   Me = new Face(50,50);
 }
 void draw(){
@@ -432,6 +434,18 @@ if (mouseX<248&&mouseX>69&&mouseY<400&&mouseY>200&&mousePressed){
   
   star2(mouseX,mouseY);
     }
+    
+     if(count ==10){
+        background(0);
+        wordfinish();
+       mover.update();
+       mover.display(246, 185, 209);
+       strokeWeight(5);
+       fill(245);
+       arc(300,300,300,300,PI/6,PI-PI/6,OPEN);
+       
+      
+     }
 }
 
 
@@ -486,7 +500,21 @@ void star2(float x, float y){
   vertex(x-14, y-20);
   endShape(CLOSE);
  }
+ void wordfinish(){
+   String finish = " Hi! Black Ball!! ";
+   String finish2 = " The End." ; 
+   fill(253, 203, 222);
+  textSize(42);
+  text(finish,100,100,500,500);
+  fill(253, 203, 222);
+  textSize(50);
+  text(finish2,100,500,500,500);
   
+   
+   
+ }
+ 
+ 
 void word1(){ 
   String one = " I Had A Black Ball Names Depression... ";
  // String two = " I am a person with depression.. ";
@@ -573,12 +601,14 @@ void word9(){
   text(great,100,100,500,500);
 }
  
- 
+
 
 void keyPressed(){
-if(keyPressed == true){
+if(keyPressed == true&&count<10){
 count++;
 }
 }
+
+
 
  
