@@ -1,5 +1,6 @@
-//import processing.sound.*;
-//SoundFile file;
+import ddf.minim.*;
+AudioPlayer player;
+Minim minim;
 int count = 0; // important ! Used to switching different scenes..
 //scene1
 PImage photo;
@@ -53,8 +54,12 @@ float embrace;
 PImage s;
 
 void setup(){
-  //file = new SoundFile(this,"music.mp3");
-  //file.play();
+  
+  minim = new Minim(this);
+  player = minim.loadFile("music.mp3", 2048);
+  player.play();
+  
+  
   size(800,800);
   println(mouseX,mouseY); 
   // 1
@@ -610,5 +615,10 @@ count++;
 }
 
 
+void stop(){
+  player.close();
+  minim.stop();
+  super.stop();
+}
 
  
